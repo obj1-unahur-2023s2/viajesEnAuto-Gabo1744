@@ -26,8 +26,49 @@ describe "Testing de AnaMaria"{
 
 describe "testing de Teresa"{
 	
-	test "prescio de kilometros sin cambios"{
+	test "prescio de kilometros con cambios"{
 		teresa.valorPorKm(32)
 		assert.equals(32,teresa.valorPorKm())
+	}
+	test "Precio del Km sin cambios"{
+		assert.equals(22,teresa.valorPorKm())
+	}
+}
+
+describe "Testing Ludmila"{
+	
+	test "precio por kilometro" {
+		assert.equals(18,ludmila.valorPorKm())
+	}
+}
+
+describe "testing Melina"{
+	
+	test "No puede trabajar para si misma" {
+		assert.throwsExceptionWithMessage("No puede trabajar para si misma",{melina.trabajaPara(melina)})
+	}
+	
+	test "Puede trabajar para otros"{
+		assert.doesNotThrowException({melina.trabajaPara(ludmila)})
+		assert.equals(ludmila,melina.trabajaPara())
+	}
+	
+	test "precio si trbajar para ludmila"{
+		melina.trabajaPara(ludmila)
+		assert.equals(15,melina.valorPorKm())
+	}
+	
+	test "precio si trbajar para Ana Maria"{
+		melina.trabajaPara(anaMaria)
+		assert.equals(27,melina.valorPorKm())
+		anaMaria.cambiarsituacionEconomica()
+		assert.equals(22,melina.valorPorKm())
+	}
+	
+	test "precio si trbajar para teresa"{
+		melina.trabajaPara(teresa)
+		assert.equals(19,melina.valorPorKm())
+		teresa.valorPorKm(32)
+		assert.equals(29,melina.valorPorKm())
 	}
 }

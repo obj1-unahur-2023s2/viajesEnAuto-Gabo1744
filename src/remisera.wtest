@@ -121,6 +121,18 @@ describe "testing de lucia"{
 	
 	test "reemplazo a roxana llevando a Ludmila"{
 		lucia.estaReemplazando(roxana)
-		assert.equals(180,roxana.valorDeViaje(ludmila,10))
+		assert.equals(180,lucia.valorDeViaje(ludmila,10))
+	}
+	
+	test "puede reemplazar a Mariela llevando a Melina que trabaja para Ludmila, 10 kms"{
+		lucia.estaReemplazando(mariela)
+		melina.trabajaPara(ludmila)
+		assert.equals(150,lucia.valorDeViaje(melina,10))
+	}
+	
+	test "puede reemplazar a Mariela llevando a Melina que trabaja para Ludmila, 1 kms"{
+		lucia.estaReemplazando(mariela)
+		melina.trabajaPara(ludmila)
+		assert.equals(50,lucia.valorDeViaje(melina,1))
 	}
 }

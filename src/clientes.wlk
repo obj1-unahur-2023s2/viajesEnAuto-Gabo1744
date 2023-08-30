@@ -21,7 +21,7 @@ object teresa {
 	var property valorPorKm = 22
 }
 
-object melina{
+object melina {
 	var trabajaPara
 	
 	method trabajaPara() = trabajaPara
